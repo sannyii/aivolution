@@ -1,0 +1,52 @@
+{
+  "header": {
+    "title": "AI News Feed",
+    "subtitle": "Daily curated AI industry news",
+    "nav": {
+      "today": "Today's News",
+      "history": "History",
+      "about": "About Us"
+    }
+  },
+  "news": {
+    "title": "AI News Feed",
+    "subtitle": "Daily curated 10 major AI industry news",
+    "noData": "No news data available",
+    "noDataDesc": "Please try again later or contact administrator",
+    "dailyUpdate": "Daily updates • Curated top 10 AI industry news",
+    "readMore": "Read More",
+    "author": "Author",
+    "source": "Source",
+    "categories": {
+      "productRelease": "Product Release",
+      "techBreakthrough": "Tech Breakthrough",
+      "aiSafety": "AI Safety",
+      "enterpriseApp": "Enterprise App",
+      "autonomousDriving": "Autonomous Driving",
+      "hardwareTech": "Hardware Tech",
+      "openSource": "Open Source",
+      "medicalAI": "Medical AI",
+      "environmentAI": "Environment AI",
+      "aiPolicy": "AI Policy"
+    }
+  },
+  "footer": {
+    "description": "Focused on the latest developments in AI, we curate 10 of the most important AI news daily to help you stay at the forefront of AI development.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact Us",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "copyright": "All rights reserved"
+  },
+  "history": {
+    "title": "News History Timeline",
+    "subtitle": "Review the important development journey of AI field",
+    "noHistory": "No historical news data available"
+  },
+  "language": {
+    "switch": "Switch Language",
+    "chinese": "中文",
+    "english": "English"
+  }
+}

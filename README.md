@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI新闻信息流
 
-## Getting Started
+一个专注于AI领域的新闻信息流网站，每日精选10条最重要的AI新闻。
 
-First, run the development server:
+## 功能特点
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 📰 每日精选10条AI领域重大新闻
+- 🌍 国际化支持（中英文切换）
+- 📅 历史新闻时间线页面
+- 🎨 现代化响应式设计
+- 📱 移动端友好
+- 🏷️ 新闻分类和标签系统
+- 📊 优先级排序显示
+- 💾 基于JSON文件的轻量级数据存储
+
+## 技术栈
+
+- **框架**: Next.js 14 (App Router)
+- **语言**: TypeScript
+- **样式**: Tailwind CSS
+- **国际化**: next-intl
+- **时间线**: react-vertical-timeline-component
+- **数据存储**: JSON文件（无需数据库）
+- **部署**: 支持Vercel等平台
+
+## 项目结构
+
+```
+src/
+├── app/
+│   ├── [locale]/           # 国际化路由
+│   │   ├── page.tsx        # 主页面
+│   │   ├── history/        # 历史新闻页面
+│   │   └── layout.tsx      # 布局组件
+│   ├── globals.css         # 全局样式
+│   └── layout.tsx          # 根布局
+├── components/
+│   ├── Header.tsx          # 网站头部
+│   ├── Footer.tsx          # 网站底部
+│   ├── NewsCard.tsx        # 新闻卡片组件
+│   ├── NewsList.tsx        # 新闻列表组件
+│   └── LanguageSwitcher.tsx # 语言切换组件
+├── data/
+│   └── news.json           # 新闻数据存储
+├── lib/
+│   └── news.ts             # 新闻数据获取逻辑
+├── messages/               # 国际化翻译文件
+│   ├── zh.json            # 中文翻译
+│   └── en.json            # 英文翻译
+├── types/
+│   └── news.ts             # TypeScript类型定义
+├── i18n.ts                 # 国际化配置
+└── middleware.ts           # 中间件配置
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 快速开始
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. 安装依赖
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. 启动开发服务器
+```bash
+npm run dev
+```
 
-## Learn More
+3. 在浏览器中打开 [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+## 新功能说明
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 国际化支持
+- 支持中英文切换
+- 使用 `next-intl` 库实现
+- 所有文本内容都支持多语言
+- 语言切换器位于页面右上角
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 历史新闻时间线
+- 访问 `/zh/history` 或 `/en/history` 查看历史新闻
+- 以时间线形式展示每日新闻
+- 每天显示前3条重要新闻
+- 按时间倒序排列
 
-## Deploy on Vercel
+## 数据格式
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+新闻数据存储在 `src/data/news.json` 文件中，格式如下：
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```json
+{
+  "2024-01-15": {
+    "date": "2024-01-15",
+    "news": [
+      {
+        "id": "1",
+        "title": "新闻标题",
+        "summary": "新闻摘要",
+        "content": "新闻详细内容",
+        "author": "作者",
+        "publishDate": "2024-01-15T09:00:00Z",
+        "category": "分类",
+        "tags": ["标签1", "标签2"],
+        "source": "来源",
+        "sourceUrl": "原文链接",
+        "imageUrl": "图片链接（可选）",
+        "priority": 1
+      }
+    ]
+  }
+}
+```
+
+## 添加新新闻
+
+1. 编辑 `src/data/news.json` 文件
+2. 在对应日期下添加新的新闻条目
+3. 确保每个新闻条目包含所有必需字段
+4. 按优先级（priority）排序，数字越小优先级越高
+
+## 部署
+
+### Vercel部署
+
+1. 将代码推送到GitHub仓库
+2. 在Vercel中导入项目
+3. 自动部署完成
+
+### 其他平台
+
+项目是标准的Next.js应用，可以部署到任何支持Node.js的平台。
+
+## 自定义配置
+
+- 修改 `src/lib/news.ts` 来调整数据获取逻辑
+- 修改 `src/components/` 中的组件来自定义UI
+- 修改 `src/app/globals.css` 来自定义样式
+
+## 许可证
+
+MIT License

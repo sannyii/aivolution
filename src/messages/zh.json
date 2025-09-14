@@ -1,0 +1,52 @@
+{
+  "header": {
+    "title": "AI新闻信息流",
+    "subtitle": "每日精选AI领域重大新闻",
+    "nav": {
+      "today": "今日新闻",
+      "history": "历史新闻",
+      "about": "关于我们"
+    }
+  },
+  "news": {
+    "title": "AI新闻信息流",
+    "subtitle": "每日精选10条AI领域重大新闻",
+    "noData": "暂无新闻数据",
+    "noDataDesc": "请稍后再试或联系管理员",
+    "dailyUpdate": "每日更新 • 精选AI领域最重要的10条新闻",
+    "readMore": "阅读原文",
+    "author": "作者",
+    "source": "来源",
+    "categories": {
+      "productRelease": "产品发布",
+      "techBreakthrough": "技术突破",
+      "aiSafety": "AI安全",
+      "enterpriseApp": "企业应用",
+      "autonomousDriving": "自动驾驶",
+      "hardwareTech": "硬件技术",
+      "openSource": "开源技术",
+      "medicalAI": "医疗AI",
+      "environmentAI": "环境AI",
+      "aiPolicy": "AI政策"
+    }
+  },
+  "footer": {
+    "description": "专注于AI领域的最新动态，每日为您精选10条最重要的AI新闻，帮助您紧跟AI发展前沿。",
+    "quickLinks": "快速链接",
+    "contact": "联系我们",
+    "email": "邮箱",
+    "phone": "电话",
+    "address": "地址",
+    "copyright": "保留所有权利"
+  },
+  "history": {
+    "title": "历史新闻时间线",
+    "subtitle": "回顾AI领域的重要发展历程",
+    "noHistory": "暂无历史新闻数据"
+  },
+  "language": {
+    "switch": "切换语言",
+    "chinese": "中文",
+    "english": "English"
+  }
+}
