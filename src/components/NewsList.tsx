@@ -1,14 +1,18 @@
 import { DailyNews } from '@/types/news';
 import NewsCard from './NewsCard';
+import { useLocale, useTranslations } from 'next-intl';
 
 interface NewsListProps {
   dailyNews: DailyNews;
 }
 
 export default function NewsList({ dailyNews }: NewsListProps) {
+  const t = useTranslations('news');
+  const locale = useLocale();
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('zh-CN', {
+    return date.toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -20,10 +24,10 @@ export default function NewsList({ dailyNews }: NewsListProps) {
     <div className="space-y-6">
       <div className="text-center">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          AI新闻信息流
+          {t('title')}
         </h1>
         <p className="text-lg text-gray-600 mb-4">
-          {formatDate(dailyNews.date)} - 每日精选10条AI领域重大新闻
+          {formatDate(dailyNews.date)} - {t('subtitle')}
         </p>
         <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
       </div>
@@ -36,7 +40,7 @@ export default function NewsList({ dailyNews }: NewsListProps) {
 
       <div className="text-center py-8">
         <p className="text-gray-500 text-sm">
-          每日更新 • 精选AI领域最重要的10条新闻
+          {t('dailyUpdate')}
         </p>
       </div>
     </div>
