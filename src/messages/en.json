@@ -47,6 +47,8 @@
   "language": {
     "switch": "Switch Language",
     "chinese": "中文",
-    "english": "English"
+    "english": "English",
+    "japanese": "日本語",
+    "korean": "한국어"
   }
 }

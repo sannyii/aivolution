@@ -1,0 +1,54 @@
+{
+  "header": {
+    "title": "AI 뉴스 피드",
+    "subtitle": "매일 엄선한 AI 업계 뉴스",
+    "nav": {
+      "today": "오늘의 뉴스",
+      "history": "역사",
+      "about": "회사 소개"
+    }
+  },
+  "news": {
+    "title": "AI 뉴스 피드",
+    "subtitle": "AI 업계의 주요 뉴스를 매일 10건 엄선",
+    "noData": "뉴스 데이터가 없습니다",
+    "noDataDesc": "나중에 다시 시도하거나 관리자에게 문의하세요",
+    "dailyUpdate": "매일 업데이트 • AI 업계 상위 10개 뉴스 엄선",
+    "readMore": "더 보기",
+    "author": "작성자",
+    "source": "출처",
+    "categories": {
+      "productRelease": "제품 출시",
+      "techBreakthrough": "기술 돌파구",
+      "aiSafety": "AI 안전",
+      "enterpriseApp": "기업용 애플리케이션",
+      "autonomousDriving": "자율 주행",
+      "hardwareTech": "하드웨어 기술",
+      "openSource": "오픈 소스",
+      "medicalAI": "의료 AI",
+      "environmentAI": "환경 AI",
+      "aiPolicy": "AI 정책"
+    }
+  },
+  "footer": {
+    "description": "AI의 최신 동향에 집중하여 매일 가장 중요한 AI 뉴스를 10건 엄선해 제공합니다.",
+    "quickLinks": "바로가기",
+    "contact": "문의하기",
+    "email": "이메일",
+    "phone": "전화",
+    "address": "주소",
+    "copyright": "판권 소유"
+  },
+  "history": {
+    "title": "뉴스 히스토리 타임라인",
+    "subtitle": "AI 분야의 주요 발전 과정을 되돌아보세요",
+    "noHistory": "히스토리 뉴스 데이터가 없습니다"
+  },
+  "language": {
+    "switch": "언어 전환",
+    "chinese": "中文",
+    "english": "English",
+    "japanese": "日本語",
+    "korean": "한국어"
+  }
+}

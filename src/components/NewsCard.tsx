@@ -1,5 +1,6 @@
 import { NewsItem } from '@/types/news';
 import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
 
 interface NewsCardProps {
   news: NewsItem;
@@ -7,9 +8,13 @@ interface NewsCardProps {
 }
 
 export default function NewsCard({ news, index }: NewsCardProps) {
+  const locale = useLocale();
+  const t = useTranslations('news');
+  const catT = useTranslations('news.categories');
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('zh-CN', {
+    return date.toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -20,16 +25,16 @@ export default function NewsCard({ news, index }: NewsCardProps) {
 
   const getCategoryTranslation = (category: string) => {
     const categoryMap: { [key: string]: string } = {
-      '产品发布': '产品发布',
-      '技术突破': '技术突破',
-      'AI安全': 'AI安全',
-      '企业应用': '企业应用',
-      '自动驾驶': '自动驾驶',
-      '硬件技术': '硬件技术',
-      '开源技术': '开源技术',
-      '医疗AI': '医疗AI',
-      '环境AI': '环境AI',
-      'AI政策': 'AI政策'
+      '产品发布': catT('productRelease'),
+      '技术突破': catT('techBreakthrough'),
+      'AI安全': catT('aiSafety'),
+      '企业应用': catT('enterpriseApp'),
+      '自动驾驶': catT('autonomousDriving'),
+      '硬件技术': catT('hardwareTech'),
+      '开源技术': catT('openSource'),
+      '医疗AI': catT('medicalAI'),
+      '环境AI': catT('environmentAI'),
+      'AI政策': catT('aiPolicy')
     };
     return categoryMap[category] || category;
   };
@@ -72,9 +77,9 @@ export default function NewsCard({ news, index }: NewsCardProps) {
 
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 text-sm text-gray-500">
-            <span>作者: {news.author}</span>
+            <span>{t('author')}: {news.author}</span>
             <span>•</span>
-            <span>来源: {news.source}</span>
+            <span>{t('source')}: {news.source}</span>
           </div>
           
           <Link
@@ -83,7 +88,7 @@ export default function NewsCard({ news, index }: NewsCardProps) {
             rel="noopener noreferrer"
             className="inline-flex items-center px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200"
           >
-            阅读原文
+            {t('readMore')}
           </Link>
         </div>
       </div>
