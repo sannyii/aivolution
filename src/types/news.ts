@@ -17,3 +17,7 @@ export interface DailyNews {
   date: string; // YYYY-MM-DD format
   news: NewsItem[];
 }
+
+export type ChronologicalNewsItem = NewsItem & {
+  day: string;
+};

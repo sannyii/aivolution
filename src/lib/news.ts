@@ -1,4 +1,5 @@
 import { DailyNews } from '@/types/news';
+import type { ChronologicalNewsItem } from '@/types/news';
 import newsData from '@/data/news.json';
 
 export function getTodayNews(): DailyNews | null {
@@ -49,4 +50,22 @@ export function getNewsByCategory(category: string): DailyNews[] {
   });
   
   return result;
+}
+
+export function getChronologicalNews(): ChronologicalNewsItem[] {
+  const entries: ChronologicalNewsItem[] = [];
+
+  Object.entries(newsData).forEach(([date, daily]) => {
+    const dailyNews = daily as DailyNews;
+    dailyNews.news.forEach((item) => {
+      entries.push({
+        ...item,
+        day: date
+      });
+    });
+  });
+
+  return entries.sort(
+    (a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
+  );
 }

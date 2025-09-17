@@ -1,22 +1,20 @@
 {
   "header": {
-    "title": "AI新闻信息流",
-    "subtitle": "每日精选AI领域重大新闻",
-    "nav": {
-      "today": "今日新闻",
-      "history": "历史新闻",
-      "about": "关于我们"
-    }
+    "title": "AI进化情报局",
+    "subtitle": "沉浸式AI态势雷达"
   },
   "news": {
-    "title": "AI新闻信息流",
-    "subtitle": "每日精选10条AI领域重大新闻",
-    "noData": "暂无新闻数据",
-    "noDataDesc": "请稍后再试或联系管理员",
-    "dailyUpdate": "每日更新 • 精选AI领域最重要的10条新闻",
-    "readMore": "阅读原文",
-    "author": "作者",
-    "source": "来源",
+    "heroTitle": "AI进化沉浸式情报流",
+    "heroSubtitle": "以3D毛玻璃卡片呈现全球AI突破",
+    "heroDescription": "面向大屏的横向景观布局，亦可自适应手机。倒序卡片信息流无限循环刷新，下一条AI灵感只需下滑即可捕获。",
+    "noData": "暂未获取到情报",
+    "noDataDesc": "请稍后刷新，或联系运营团队。",
+    "scrollHint": "向下滑动，按时间倒序解锁每一个洞察瞬间",
+    "infiniteHint": "信息流将自动循环播放，持续锁定关键事件",
+    "lastUpdated": "最新同步",
+    "readMore": "前往原文",
+    "author": "撰稿",
+    "source": "出处",
     "categories": {
       "productRelease": "产品发布",
       "techBreakthrough": "技术突破",
@@ -31,24 +29,13 @@
     }
   },
   "footer": {
-    "description": "专注于AI领域的最新动态，每日为您精选10条最重要的AI新闻，帮助您紧跟AI发展前沿。",
-    "quickLinks": "快速链接",
-    "contact": "联系我们",
-    "email": "邮箱",
-    "phone": "电话",
-    "address": "地址",
-    "copyright": "保留所有权利"
+    "crafted": "由AI进化情报局策划 · 让AI脉搏一目了然",
+    "rights": "© 2024 AIVolution. 保留所有权利。",
+    "disclaimer": "数据来自公开渠道，请结合原文进行判断。"
   },
   "history": {
-    "title": "历史新闻时间线",
-    "subtitle": "回顾AI领域的重要发展历程",
-    "noHistory": "暂无历史新闻数据"
-  },
-  "language": {
-    "switch": "切换语言",
-    "chinese": "中文",
-    "english": "English",
-    "japanese": "日本語",
-    "korean": "한국어"
+    "title": "AI演进时间轴",
+    "subtitle": "沿着时间脉络回望每一次突破",
+    "noHistory": "暂无历史情报"
   }
 }
