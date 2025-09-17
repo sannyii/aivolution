@@ -1,20 +1,18 @@
 {
   "header": {
-    "title": "AI News Feed",
-    "subtitle": "Daily curated AI industry news",
-    "nav": {
-      "today": "Today's News",
-      "history": "History",
-      "about": "About Us"
-    }
+    "title": "AIVolution Intelligence",
+    "subtitle": "Immersive AI landscape radar"
   },
   "news": {
-    "title": "AI News Feed",
-    "subtitle": "Daily curated 10 major AI industry news",
-    "noData": "No news data available",
-    "noDataDesc": "Please try again later or contact administrator",
-    "dailyUpdate": "Daily updates • Curated top 10 AI industry news",
-    "readMore": "Read More",
+    "heroTitle": "Immersive AI Intelligence Stream",
+    "heroSubtitle": "A 3D frosted-glass feed tracking every breakthrough",
+    "heroDescription": "Dive into a landscape dashboard built for large screens yet fluid on mobile. The card-based feed refreshes endlessly in reverse chronology so your next AI insight is always one scroll away.",
+    "noData": "No intelligence available yet",
+    "noDataDesc": "Please refresh in a moment or contact the operations team.",
+    "scrollHint": "Scroll downward to unlock each insight in reverse chronological order",
+    "infiniteHint": "The feed loops automatically to keep the spotlight on key events",
+    "lastUpdated": "Latest sync",
+    "readMore": "View source",
     "author": "Author",
     "source": "Source",
     "categories": {
@@ -31,24 +29,13 @@
     }
   },
   "footer": {
-    "description": "Focused on the latest developments in AI, we curate 10 of the most important AI news daily to help you stay at the forefront of AI development.",
-    "quickLinks": "Quick Links",
-    "contact": "Contact Us",
-    "email": "Email",
-    "phone": "Phone",
-    "address": "Address",
-    "copyright": "All rights reserved"
+    "crafted": "Curated by AIVolution Intelligence · Keeping the AI pulse visible",
+    "rights": "© 2024 AIVolution. All rights reserved.",
+    "disclaimer": "Data is aggregated from public sources. Please read the original articles for full context."
   },
   "history": {
-    "title": "News History Timeline",
-    "subtitle": "Review the important development journey of AI field",
-    "noHistory": "No historical news data available"
-  },
-  "language": {
-    "switch": "Switch Language",
-    "chinese": "中文",
-    "english": "English",
-    "japanese": "日本語",
-    "korean": "한국어"
+    "title": "AI Evolution Timeline",
+    "subtitle": "Trace each breakthrough along the chronological path",
+    "noHistory": "No historical intelligence available"
   }
 }

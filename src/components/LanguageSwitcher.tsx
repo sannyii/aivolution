@@ -1,47 +1,59 @@
 'use client';
 
+import { useCallback } from 'react';
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 
 export default function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const t = useTranslations('language');
 
-  const switchLanguage = (newLocale: string) => {
-    // Remove the current locale from the pathname
-    const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
-    router.push(`/${newLocale}${pathWithoutLocale}`);
-  };
+  const switchLanguage = useCallback(
+    (targetLocale: 'zh' | 'en') => {
+      if (targetLocale === locale) return;
+      const pathWithoutLocale = pathname.replace(/^\/(zh|en)/, '');
+      const destination =
+        pathWithoutLocale.length === 0
+          ? `/${targetLocale}`
+          : `/${targetLocale}${pathWithoutLocale}`;
+      router.push(destination);
+    },
+    [locale, pathname, router]
+  );
+
+  const baseButtonClass =
+    'px-1.5 text-sm font-medium transition-colors duration-200 focus:outline-none';
+  const containerClass =
+    'inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm font-semibold text-white/70 shadow-[0_18px_45px_-30px_rgba(129,140,248,0.8)] backdrop-blur-xl';
+
+  const ariaLabel = locale === 'zh' ? '切换语言' : 'Switch language';
 
   return (
-    <div className="flex items-center space-x-2">
-      <span className="text-sm text-gray-600">{t('switch')}:</span>
-      <div className="flex bg-gray-100 rounded-lg p-1">
-        {['zh', 'en', 'ja', 'ko'].map((loc) => (
-          <button
-            key={loc}
-            onClick={() => switchLanguage(loc)}
-            className={`px-3 py-1 text-sm rounded-md transition-colors duration-200 ${
-              locale === loc
-                ? 'bg-blue-600 text-white'
-                : 'text-gray-600 hover:text-gray-900'
-            }`}
-          >
-            {t(
-              loc === 'zh'
-                ? 'chinese'
-                : loc === 'en'
-                ? 'english'
-                : loc === 'ja'
-                ? 'japanese'
-                : 'korean'
-            )}
-          </button>
-        ))}
-      </div>
+    <div className={containerClass} aria-label={ariaLabel}>
+      <button
+        type="button"
+        className={`${baseButtonClass} ${
+          locale === 'zh'
+            ? 'text-white'
+            : 'text-white/50 hover:text-white'
+        }`}
+        onClick={() => switchLanguage('zh')}
+      >
+        中
+      </button>
+      <span className="mx-1.5 text-xs text-white/40">/</span>
+      <button
+        type="button"
+        className={`${baseButtonClass} ${
+          locale === 'en'
+            ? 'text-white'
+            : 'text-white/50 hover:text-white'
+        }`}
+        onClick={() => switchLanguage('en')}
+      >
+        EN
+      </button>
     </div>
   );
 }

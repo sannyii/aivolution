@@ -1,40 +1,27 @@
-import Link from 'next/link';
 import LanguageSwitcher from './LanguageSwitcher';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 
 export default function Header() {
   const t = useTranslations('header');
-  const locale = useLocale();
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-6">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">AI</span>
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">{t('title')}</h1>
-              <p className="text-sm text-gray-500">{t('subtitle')}</p>
-            </div>
+    <header className="sticky top-0 z-30 border-b border-white/10 bg-slate-950/70 backdrop-blur-2xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+        <div className="flex items-center gap-4">
+          <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/10 shadow-[0_25px_60px_-35px_rgba(99,102,241,0.9)]">
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-400/60 via-sky-300/40 to-transparent opacity-80" />
+            <span className="relative text-lg font-bold tracking-wider text-white">AI</span>
           </div>
-
-          <div className="flex items-center space-x-6">
-            <nav className="hidden md:flex space-x-8">
-              <Link href={`/${locale}`} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
-                {t('nav.today')}
-              </Link>
-              <Link href={`/${locale}/history`} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
-                {t('nav.history')}
-              </Link>
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
-                {t('nav.about')}
-              </a>
-            </nav>
-            <LanguageSwitcher />
+          <div className="flex flex-col gap-1">
+            <span className="text-xs font-semibold uppercase tracking-[0.38em] text-white/60">
+              {t('subtitle')}
+            </span>
+            <h1 className="text-xl font-semibold text-white sm:text-2xl">
+              {t('title')}
+            </h1>
           </div>
         </div>
+        <LanguageSwitcher />
       </div>
     </header>
   );

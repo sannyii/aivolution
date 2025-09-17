@@ -1,5 +1,5 @@
 const intlConfig = {
-  locales: ['en', 'zh', 'ja', 'ko'],
+  locales: ['zh', 'en'],
   defaultLocale: 'zh',
   localeDetection: true
 };

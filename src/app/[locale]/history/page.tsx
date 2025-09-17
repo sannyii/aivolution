@@ -47,11 +47,19 @@ export default function HistoryPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="relative min-h-screen text-white">
       <Header />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-3xl font-bold text-center mb-8">{t('title')}</h1>
-        <div ref={containerRef} id="timeline-embed" />
+      <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 pb-24 pt-16 lg:px-6">
+        <section className="rounded-[2.5rem] border border-white/10 bg-white/5 px-8 py-10 text-center shadow-[0_55px_140px_-90px_rgba(82,109,255,0.75)] backdrop-blur-2xl">
+          <h1 className="text-3xl font-semibold text-white sm:text-4xl">{t('title')}</h1>
+          <p className="mt-4 text-base text-white/70 sm:text-lg">{t('subtitle')}</p>
+        </section>
+
+        <section className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 p-4 shadow-[0_60px_160px_-100px_rgba(88,110,255,0.78)] backdrop-blur-2xl sm:p-8">
+          <div className="pointer-events-none absolute -top-32 left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-indigo-500/30 blur-[150px]" />
+          <div className="pointer-events-none absolute -bottom-40 right-16 h-72 w-72 rounded-full bg-rose-500/25 blur-[160px]" />
+          <div ref={containerRef} id="timeline-embed" className="relative min-h-[420px] w-full sm:min-h-[520px]" />
+        </section>
       </main>
       <Footer />
     </div>
