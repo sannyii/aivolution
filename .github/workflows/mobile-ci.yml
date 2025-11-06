@@ -1,0 +1,91 @@
+name: Mobile CI/CD
+
+on:
+  push:
+    paths:
+      - 'mobile/**'
+      - '.github/workflows/mobile-ci.yml'
+    branches:
+      - main
+      - develop
+      - 'feature/**'
+  pull_request:
+    paths:
+      - 'mobile/**'
+      - '.github/workflows/mobile-ci.yml'
+
+jobs:
+  build-test:
+    name: Validate React Native app
+    if: ${{ hashFiles('mobile/package.json') != '' }}
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint --if-present
+
+      - name: Unit tests
+        run: npm run test --if-present
+
+      - name: E2E tests
+        if: ${{ github.event_name == 'push' && hashFiles('mobile/package.json', 'mobile/package-lock.json', 'mobile/e2e/**') != '' }}
+        run: npm run test:e2e --if-present
+
+  distribute:
+    name: Ship to TestFlight
+    needs: build-test
+    if: ${{ needs.build-test.result == 'success' && github.ref == 'refs/heads/main' }}
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: Install Fastlane
+        run: |
+          gem install fastlane
+
+      - name: Decrypt certificates
+        if: ${{ secrets.MATCH_PASSWORD != '' }}
+        run: |
+          fastlane match appstore --readonly
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+
+      - name: Run TestFlight lane
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          BETA_CONTACT_EMAIL: ${{ secrets.BETA_CONTACT_EMAIL }}
+          BETA_CONTACT_PHONE: ${{ secrets.BETA_CONTACT_PHONE }}
+          BETA_DEMO_USER: ${{ secrets.BETA_DEMO_USER }}
+          BETA_DEMO_PASSWORD: ${{ secrets.BETA_DEMO_PASSWORD }}
+          CHANGELOG: ${{ github.event.head_commit.message }}
+        run: |
+          fastlane ios beta

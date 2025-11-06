@@ -23,6 +23,14 @@
 - **数据存储**: JSON文件（无需数据库）
 - **部署**: 支持Vercel等平台
 
+## 后端与云基础设施
+
+- **后端服务**：`services/api` 中提供了基于 TypeScript + Express 的 API 基础工程，内置安全中间件、健康检查与 Jest 单元/集成测试。
+- **云平台**：推荐部署在 AWS ECS Fargate，镜像存放至 ECR，并通过 Application Load Balancer 暴露流量。
+- **持续交付**：`.github/workflows/backend-ci.yml` 会在推送后自动执行 Lint、单元测试、集成测试，并在主分支/预发布分支完成后续容器构建与 ECS 部署。
+
+更多细节见 `docs/devops/backend-cloud.md` 与 `docs/devops/infra-aws.md`。
+
 ## 项目结构
 
 ```
@@ -127,6 +135,12 @@ npm run dev
 ### 其他平台
 
 项目是标准的Next.js应用，可以部署到任何支持Node.js的平台。
+
+### 移动端与多端 CI/CD
+
+- `.github/workflows/mobile-ci.yml` 针对 `mobile/` 目录的 React Native 应用配置了自动化构建。
+- 通过 Fastlane (`mobile/fastlane/Fastfile`) 在主分支构建完成后自动分发 TestFlight。
+- 详细流程说明位于 `docs/devops/ci-cd.md`。
 
 ## 自定义配置
 

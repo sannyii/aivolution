@@ -1,0 +1,11 @@
+{
+  "name": "@aivolution/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "echo 'Expo start command to be added'",
+    "lint": "echo 'lint placeholder'",
+    "test": "echo 'test placeholder'",
+    "test:e2e": "echo 'detox placeholder'"
+  }
+}

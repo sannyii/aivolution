@@ -1,0 +1,24 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Build and distribute to TestFlight"
+  lane :beta do
+    build_app(
+      scheme: "AIVolution",
+      export_method: "app-store",
+      output_directory: "../build/ios"
+    )
+
+    upload_to_testflight(
+      changelog: ENV.fetch('CHANGELOG', 'Automated build'),
+      beta_app_review_info: {
+        contact_first_name: "AI",
+        contact_last_name: "Team",
+        contact_phone: ENV['BETA_CONTACT_PHONE'],
+        contact_email: ENV['BETA_CONTACT_EMAIL'],
+        demo_account_name: ENV['BETA_DEMO_USER'],
+        demo_account_password: ENV['BETA_DEMO_PASSWORD']
+      }
+    )
+  end
+end
