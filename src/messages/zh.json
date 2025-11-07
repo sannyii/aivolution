@@ -1,7 +1,14 @@
 {
   "header": {
     "title": "AI进化情报局",
-    "subtitle": "沉浸式AI态势雷达"
+    "subtitle": "沉浸式AI态势雷达",
+    "nav": {
+      "feed": "实时资讯",
+      "history": "演化时间线",
+      "governance": "数据治理",
+      "policies": "政策与协议",
+      "privacyControl": "隐私控制"
+    }
   },
   "news": {
     "heroTitle": "AI进化沉浸式情报流",
@@ -31,11 +38,198 @@
   "footer": {
     "crafted": "由AI进化情报局策划 · 让AI脉搏一目了然",
     "rights": "© 2024 AIVolution. 保留所有权利。",
-    "disclaimer": "数据来自公开渠道，请结合原文进行判断。"
+    "disclaimer": "数据来自公开渠道，请结合原文进行判断。",
+    "links": {
+      "feed": "实时资讯",
+      "governance": "数据治理",
+      "policies": "政策与协议",
+      "privacyControl": "隐私控制"
+    }
   },
   "history": {
     "title": "AI演进时间轴",
     "subtitle": "沿着时间脉络回望每一次突破",
     "noHistory": "暂无历史情报"
+  },
+  "governance": {
+    "title": "数据治理与安全框架",
+    "subtitle": "展示情报数据在全生命周期内的分级、保护与管理方式。",
+    "classification": {
+      "title": "数据目录与分级",
+      "description": "我们持续盘点采集数据，以最小权限原则配置访问控制，并在接入前完成安全评估。",
+      "headers": {
+        "category": "类别",
+        "description": "用途说明",
+        "sources": "主要来源",
+        "security": "安全级别"
+      },
+      "rows": {
+        "accountData": {
+          "name": "账户与身份",
+          "description": "用户资料、认证记录、授权凭证与语言偏好，用于提供个性化体验。",
+          "sources": "用户输入、身份认证回调",
+          "security": "高"
+        },
+        "usageAnalytics": {
+          "name": "使用分析",
+          "description": "会话统计、功能交互日志及设备元数据，用于体验调优。",
+          "sources": "前端遥测、性能探针",
+          "security": "中"
+        },
+        "contentIntelligence": {
+          "name": "内容情报",
+          "description": "精选AI资讯、来源元数据、编辑批注与排序权重。",
+          "sources": "编辑工具、公开RSS、验证投稿",
+          "security": "中"
+        },
+        "supportTickets": {
+          "name": "支持沟通",
+          "description": "用户工单、脱敏请求与合规回应，作为审计依据。",
+          "sources": "服务台表单、邮件接入",
+          "security": "限制"
+        }
+      }
+    },
+    "securityLevels": {
+      "title": "安全级别与控制",
+      "description": "根据潜在影响评估风险，匹配相应的技术与管理措施。",
+      "levels": {
+        "public": {
+          "name": "公开",
+          "controls": [
+            "无需登录即可访问",
+            "通过摘要校验保证内容完整性"
+          ]
+        },
+        "medium": {
+          "name": "中等",
+          "controls": [
+            "基于角色的即时授权机制",
+            "持续监测访问行为异常"
+          ]
+        },
+        "high": {
+          "name": "高",
+          "controls": [
+            "硬件级多因素与会话隔离",
+            "季度权限复核并双人审批"
+          ]
+        },
+        "restricted": {
+          "name": "限制",
+          "controls": [
+            "专用隔离网络与紧急解锁流程",
+            "不可变审计日志保留24个月"
+          ]
+        }
+      }
+    },
+    "encryption": {
+      "title": "加密策略",
+      "rest": {
+        "title": "静态数据",
+        "items": [
+          "通过托管KMS以AES-256-GCM加密，密钥按租户隔离",
+          "核心密钥托管于硬件安全模块，季度轮换"
+        ]
+      },
+      "transit": {
+        "title": "传输中",
+        "items": [
+          "全站启用TLS 1.3，强制HSTS",
+          "内部服务启用双向TLS与短周期证书"
+        ]
+      },
+      "dynamicTitle": "动态负载",
+      "dynamic": "实时流数据采用分片加密并附加签名，确保看板展示的完整性。"
+    }
+  },
+  "policies": {
+    "title": "政策、协议与生命周期",
+    "subtitle": "透明呈现数据使用承诺与用户权利保障。",
+    "privacyPolicy": {
+      "title": "隐私政策",
+      "intro": "说明我们收集哪些数据、为何使用，以及您可行使的权利。",
+      "items": [
+        "收集范围仅限运营遥测、账户元数据与您主动提交的内容。",
+        "数据保存期限以账号关系或法规要求为上限。",
+        "我们从不出售个人数据；第三方处理方须遵守等同的安全义务。"
+      ]
+    },
+    "userAgreement": {
+      "title": "用户协议",
+      "intro": "界定可接受的使用方式与双方责任。",
+      "items": [
+        "您承诺提供真实信息并避免上传敏感个人数据。",
+        "我们保证服务可用性目标，并提前至少30天告知重要变更。",
+        "争议解决优先友好协商，再提交至您所属司法辖区的仲裁。"
+      ]
+    },
+    "deletion": {
+      "title": "数据删除流程",
+      "intro": "收到删除请求后，将执行可审计的多步骤作业。",
+      "steps": [
+        "通过签名挑战或登录会话完成身份核验；",
+        "24小时内执行软删除，并清理下游缓存与索引；",
+        "销毁加密密钥以完成密码学删除，并出具确认报告。"
+      ]
+    }
+  },
+  "privacyControl": {
+    "title": "隐私控制中心",
+    "subtitle": "查看我们持有的数据、导出备份或调整授权。",
+    "dataSummary": {
+      "title": "个人数据概览",
+      "description": "以下为当前与您账号关联的数据集概况。",
+      "lastUpdated": "最近同步",
+      "entries": {
+        "identity": {
+          "name": "身份信息",
+          "details": "资料、语言偏好、授权凭证",
+          "retention": "账号有效期 + 30 天"
+        },
+        "activity": {
+          "name": "行为日志",
+          "details": "近期会话、功能使用、异常告警",
+          "retention": "滚动180天"
+        },
+        "contributions": {
+          "name": "内容贡献",
+          "details": "投稿来源、编辑反馈",
+          "retention": "直至撤回请求"
+        }
+      }
+    },
+    "actions": {
+      "view": {
+        "title": "查看已收集数据",
+        "description": "生成安全查看器以展示最新记录。",
+        "button": "打开数据包"
+      },
+      "export": {
+        "title": "申请导出",
+        "description": "通过加密链接获取 JSON + CSV 归档。",
+        "button": "开始导出"
+      },
+      "revoke": {
+        "title": "撤回授权",
+        "description": "暂停个性化分析及第三方处理。",
+        "button": "撤回授权"
+      }
+    },
+    "consent": {
+      "title": "授权偏好",
+      "description": "选择是否允许我们处理可选数据流。",
+      "analytics": "允许匿名化使用分析",
+      "personalisation": "启用个性化内容排序",
+      "thirdParty": "与受信研究伙伴共享",
+      "submit": "保存设置"
+    },
+    "status": {
+      "viewReady": "已生成查看链接，将在安全页面中打开。",
+      "exportQueued": "导出请求已排队，准备就绪后将发送下载邮件。",
+      "consentRevoked": "授权设置已更新，个性化处理已暂停。",
+      "preferencesSaved": "偏好保存成功。"
+    }
   }
 }
